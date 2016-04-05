@@ -17,10 +17,9 @@ for number in valid_guesses:
 
 #issues here
 while raw_guess not in new_list:
-if raw_guess in new_list:
-    guess = int(raw_guess)
-else:
     raw_guess = raw_input("That's invalid. Guess again.")
+
+guess = raw_guess
 
 r_number = random.randint(1,100)
 
