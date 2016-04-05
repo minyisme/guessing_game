@@ -16,25 +16,34 @@ for number in valid_guesses:
     new_list.append(str(number))
 
 #issues here
-while raw_guess not in new_list:
-    raw_guess = raw_input("That's invalid. Guess again.")
+# while raw_guess not in new_list:
+#     raw_guess = raw_input("That's invalid. Guess again.")
 
-guess = raw_guess
+# guess = raw_guess
 
 r_number = random.randint(1,100)
 
 print r_number
 
-while guess != r_number:
-    if guess > r_number:
+def validate_guess(raw_guess):
+    while raw_guess not in new_list:
+        raw_guess = raw_input("That's invalid. Guess again.")
+    guess = int(raw_guess)
+    return guess
+
+final_guess = validate_guess(raw_guess)
+while final_guess != r_number:
+    if final_guess > r_number:
         print "Guess is too high."
-    elif guess < r_number:
+    elif final_guess < r_number:
         print "Guess is too low."
     raw_guess = raw_input("Choose a number between 1 and 100: ")
     while raw_guess not in new_list:
         raw_guess = raw_input("That's invalid. Guess again.")
-    guess = int(raw_guess)
+    final_guess = int(raw_guess)
 
 
 
 print "Congratulations! You have guessed the number."
+
+
